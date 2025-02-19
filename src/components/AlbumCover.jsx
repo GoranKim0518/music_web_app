@@ -1,4 +1,4 @@
-import albumImg from "../assets/brat_album_cover.jpg";
+import albumImg from "../assets/album_covers/brat_album_cover.jpg";
 
 export default function AlbumCover(){
     return(
