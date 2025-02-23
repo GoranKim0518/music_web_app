@@ -1,1 +1,1 @@
-This web app is motivated by ios ui.
+This web app is inspired by ios ui.
