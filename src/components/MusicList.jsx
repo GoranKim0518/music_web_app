@@ -2,7 +2,7 @@ import data from "../data.js";
 export default function MusicList() {
     return(
         <ul>
-            {data.map((item) => (
+            {data.map((item) => (    
                 <li key={item.id}>
                     <div className="flex flex-row">
                         <div className="font-[M PLUS 1p] font-medium text-[26px]">{item.id + 1}</div>
