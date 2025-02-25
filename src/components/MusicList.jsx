@@ -1,9 +1,9 @@
 import data from "../data.js";
-export default function MusicList() {
+export default function MusicList({ref}) {
     return(
         <ul>
             {data.map((item) => (    
-                <li key={item.id}>
+                <li key={item.id} ref={ref}>
                     <div className="flex flex-row">
                         <div className="font-[M PLUS 1p] font-medium text-[26px]">{item.id + 1}</div>
                         <div className="flex flex-col ml-[45px] w-[233px]">

@@ -4,4 +4,6 @@ export const State = createContext({
     isPlaying: false,
     index: 0,
     changePlayingState: () => {},
+    changeStateToForward: () => {},
+    changeStateToBackward: () => {},
 })

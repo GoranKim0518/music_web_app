@@ -14,21 +14,19 @@ export default function App() {
 
   const audioRef = useRef(null);
 
-  // 오디오 객체를 동적으로 생성 및 업데이트
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.pause();
     }
 
     audioRef.current = new Audio(data[appState.index].music);
-    audioRef.current.load(); // 브라우저가 오디오를 인식하도록 강제 로드
+    audioRef.current.load();
 
     if (appState.isPlaying) {
       audioRef.current.play().catch(error => console.error("Audio play failed:", error));
     }
   }, [appState.index]);
 
-  // 오디오 재생/정지 핸들러
   function handleChangePlaying() {
     const audio = audioRef.current;
 
@@ -39,17 +37,39 @@ export default function App() {
         audio.play().catch(error => console.error("Audio play failed:", error));
       } else {
         audio.pause();
-        audio.currentTime = 0;
+        
       }
 
       return { ...prevValue, isPlaying };
     });
   }
 
+  function handleMoveForward() {
+    setAppState(prevValue => {
+      return({
+        ...prevValue,
+        index: prevValue.index === data[data.length - 1].id ? data[0].id : prevValue.index + 1
+        //만약 이전 값이 변수명이 데이터인 배열의 마지막 인덱스값이라면 ? 데이터[0]으로 저장 : 이전 값 + 1
+      });
+    });
+  }
+
+  function handleMoveBackward() {
+    setAppState(prevValue => {
+      return({
+        ...prevValue,
+        index: prevValue.index === data[0].id ? data[data.length - 1].id : prevValue.index - 1,
+      });
+    });
+    console.log(appState.index);
+  }
+
   const ctxValue = {
     isPlaying: appState.isPlaying,
     index: appState.index,
     changePlayingState: handleChangePlaying,
+    changeStateToForward: handleMoveForward,
+    changeStateToBackward: handleMoveBackward,
   };
 
   return (
