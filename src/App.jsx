@@ -5,10 +5,12 @@ import PlayList from "./components/PlayList.jsx";
 import { useState, useRef, useEffect } from "react";
 import { State } from "./store/app-state-context.jsx";
 import data from "./data.js";
-
+import nextPlayListBtn from "./assets/music_buttons/nextPlayList.svg";
+import prevPlayListBtn from "./assets/music_buttons/prevPlayList.svg";
 export default function App() {
   const [appState, setAppState] = useState({
     isPlaying: false,
+    page: 0,
     index: 0,
   });
 
@@ -75,6 +77,9 @@ export default function App() {
   return (
     <State value={ctxValue}>
       <div className="flex items-center justify-center">
+        <button>
+            <img src={prevPlayListBtn} alt="" />
+        </button>
         <div className="flex flex-col">
           <Header />
           <AlbumCover />
@@ -83,6 +88,9 @@ export default function App() {
         <div className="ml-[109px] mt-[113px]">
           <PlayList />
         </div>
+        <button>
+          <img src={nextPlayListBtn} alt="" />
+        </button>
       </div>
     </State>
   );
