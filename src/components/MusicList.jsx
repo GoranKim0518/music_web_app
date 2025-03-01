@@ -1,8 +1,14 @@
 import data from "../data.js";
+import data2 from "../data2.js";
+import { useContext } from "react";
+import { State } from "../store/app-state-context.jsx";
+
 export default function MusicList({ref}) {
+    const {page} = useContext(State);
+    const selectedData = page === 0 ? data : data2;
     return(
         <ul>
-            {data.map((item) => (    
+            {selectedData.map((item) => (    
                 <li key={item.id} ref={ref}>
                     <div className="flex flex-row">
                         <div className="font-[M PLUS 1p] font-medium text-[26px]">{item.id + 1}</div>

@@ -7,6 +7,7 @@ import { State } from "./store/app-state-context.jsx";
 import data from "./data.js";
 import nextPlayListBtn from "./assets/music_buttons/nextPlayList.svg";
 import prevPlayListBtn from "./assets/music_buttons/prevPlayList.svg";
+
 export default function App() {
   const [appState, setAppState] = useState({
     isPlaying: false,
@@ -66,9 +67,30 @@ export default function App() {
     console.log(appState.index);
   }
 
+  function handleMoveNextOrder() {
+    setAppState(prevValue => {
+      return({
+        ...prevValue,
+        page: prevValue.page + 1,
+      })
+    })
+    console.log(appState.page);
+  }
+
+  function handleMovePrevOrder() {
+    setAppState(prevValue => {
+      return({
+        ...prevValue,
+        page: prevValue.page - 1,
+      })
+    })
+    console.log(appState.page);
+  }
+
   const ctxValue = {
     isPlaying: appState.isPlaying,
     index: appState.index,
+    page: appState.page,
     changePlayingState: handleChangePlaying,
     changeStateToForward: handleMoveForward,
     changeStateToBackward: handleMoveBackward,
@@ -77,18 +99,18 @@ export default function App() {
   return (
     <State value={ctxValue}>
       <div className="flex items-center justify-center">
-        <button>
+        <button onClick={handleMovePrevOrder}className="hover:cursor-pointer">
             <img src={prevPlayListBtn} alt="" />
         </button>
         <div className="flex flex-col">
-          <Header />
+          <Header page={appState.page} />
           <AlbumCover />
           <Clock />
         </div>
         <div className="ml-[109px] mt-[113px]">
-          <PlayList />
+          <PlayList page={appState.page} />
         </div>
-        <button>
+        <button onClick={handleMoveNextOrder} className="hover:cursor-pointer">
           <img src={nextPlayListBtn} alt="" />
         </button>
       </div>

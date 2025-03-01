@@ -8,6 +8,7 @@ import b6 from "./assets/musics/Von dutch.mp3"
 
 const data = [{
     id: 0,
+    user: "Shawn",
     albumName: "Brat",
     artist: "Charli XCX",
     title: "360",
@@ -15,6 +16,7 @@ const data = [{
     music: b1,
 }, {
     id: 1,
+    user: "Shawn",
     albumName: "Brat",
     artist: "Charli XCX",
     title: "Club classics",
@@ -22,6 +24,7 @@ const data = [{
     music: b2,
 }, {
     id: 2,
+    user: "Shawn",
     albumName: "Brat",
     artist: "Charli XCX",
     title: "Sympathy is a knife",
@@ -29,6 +32,7 @@ const data = [{
     music: b3,
 }, {
     id: 3,
+    user: "Shawn",
     albumName: "Brat",
     artist: "Charli XCX",
     title: "I might say something stupid",
@@ -36,6 +40,7 @@ const data = [{
     music: b4,
 }, {
     id: 4,
+    user: "Shawn",
     albumName: "Brat",
     artist: "Charli XCX",
     title: "Talk talk",
@@ -43,6 +48,7 @@ const data = [{
     music: b5,
 }, {
     id: 5,
+    user: "Shawn",
     albumName: "Brat",
     artist: "Charli XCX",
     title:"Von dutch",
