@@ -5,6 +5,7 @@ import PlayList from "./components/PlayList.jsx";
 import { useState, useRef, useEffect } from "react";
 import { State } from "./store/app-state-context.jsx";
 import data from "./data.js";
+import data2 from "./data2.js";
 import nextPlayListBtn from "./assets/music_buttons/nextPlayList.svg";
 import prevPlayListBtn from "./assets/music_buttons/prevPlayList.svg";
 
@@ -21,14 +22,14 @@ export default function App() {
     if (audioRef.current) {
       audioRef.current.pause();
     }
-
-    audioRef.current = new Audio(data[appState.index].music);
+    const selectedData = appState.page === 0 ? data : data2;
+    audioRef.current = new Audio(selectedData[appState.index].music);
     audioRef.current.load();
 
     if (appState.isPlaying) {
       audioRef.current.play().catch(error => console.error("Audio play failed:", error));
     }
-  }, [appState.index]);
+  }, [appState.index, appState.page]);
 
   function handleChangePlaying() {
     const audio = audioRef.current;
@@ -71,7 +72,7 @@ export default function App() {
     setAppState(prevValue => {
       return({
         ...prevValue,
-        page: prevValue.page + 1,
+        page: prevValue.page != 1 ? prevValue.page + 1 : prevValue.page - 1,
       })
     })
     console.log(appState.page);
@@ -81,7 +82,7 @@ export default function App() {
     setAppState(prevValue => {
       return({
         ...prevValue,
-        page: prevValue.page - 1,
+        page: prevValue.page != 0 ? prevValue.page -1 : prevValue.page + 1,
       })
     })
     console.log(appState.page);
@@ -104,11 +105,11 @@ export default function App() {
         </button>
         <div className="flex flex-col">
           <Header page={appState.page} />
-          <AlbumCover />
+          <AlbumCover appState={appState} />
           <Clock />
         </div>
         <div className="ml-[109px] mt-[113px]">
-          <PlayList page={appState.page} />
+          <PlayList appState={appState} />
         </div>
         <button onClick={handleMoveNextOrder} className="hover:cursor-pointer">
           <img src={nextPlayListBtn} alt="" />
