@@ -7,4 +7,5 @@ export const State = createContext({
     changePlayingState: () => {},
     changeStateToForward: () => {},
     changeStateToBackward: () => {},
+    clickMusic: () => {},
 })

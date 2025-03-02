@@ -15,7 +15,7 @@ import b6Cover from "./assets/album_covers/musics2_covers/groovin'.jpg";
 const data2 = [{
     id: 0,
     user: "nada",
-    albumName: "hat-tric - single",
+    albumName: "hat-trick - single",
     artist: "Jack Marlow & Phantom Records",
     title: "Pressure FM (is your boss being a prick at work?)",
     albumCover: b1Cover,
