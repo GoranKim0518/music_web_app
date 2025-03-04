@@ -131,22 +131,24 @@ export default function App() {
 
   return (
     <State value={ctxValue}>
-      <div className="flex items-center justify-center">
-        <button onClick={handleMovePrevOrder} className="hover:cursor-pointer">
-          <img src={prevPlayListBtn} alt="" />
-        </button>
-        <div className="flex flex-col">
-          <Header page={appState.page} />
-          <AlbumCover appState={appState} />
-          <Clock />
+        <div className="min-h-screen flex justify-center items-center">
+            <button onClick={handleMovePrevOrder} className="mr-[7%] hover:cursor-pointer">
+                <img src={prevPlayListBtn} alt="move_previous_playlist.jpg" />
+            </button>
+            <div>
+                <Header page={appState.page} />
+                <AlbumCover appState={appState} />
+                <Clock />
+            </div>
+            <div className="ml-[85px] mt-[113px]">
+                <PlayList appState={appState} />
+            </div>
+            <button onClick={handleMoveNextOrder} className="ml-[7%] hover:cursor-pointer">
+                <img src={nextPlayListBtn} alt="move_next_playlist.jpg" />
+            </button>
         </div>
-        <div className="ml-[109px] mt-[113px]">
-          <PlayList appState={appState} />
-        </div>
-        <button onClick={handleMoveNextOrder} className="hover:cursor-pointer">
-          <img src={nextPlayListBtn} alt="" />
-        </button>
-      </div>
     </State>
   );
 }
+
+//1. isPlaying && 페이지 넘어갈 때 index 유지 2. 시계 추가 3. overflow ? 흘러가도록
