@@ -2,6 +2,7 @@ import data from "../data.js";
 import data2 from "../data2.js";
 import { useContext } from "react";
 import { State } from "../store/app-state-context.jsx";
+import MusicPlayingBar from "./MusicPlayingBar.jsx";
 
 export default function MusicList({ ref }) {
     const { page, index, isPlaying, clickMusic } = useContext(State);
@@ -17,10 +18,10 @@ export default function MusicList({ ref }) {
                             onClick={() => clickMusic(item)} 
                             className={`hover:cursor-pointer flex items-center ${isCurrentPlaying ? "playing-animation" : ""}`}
                         >
-                            <div className="font-[M PLUS 1p] font-medium text-[26px]">
-                                {item.id + 1}
+                            <div className="font-[M PLUS 1p] font-medium text-[26px] mr-[31px] w-[30px]">
+                                {isCurrentPlaying ? <MusicPlayingBar /> : item.id + 1}
                             </div>
-                            <div className="flex flex-col ml-[45px] w-[233px]">
+                            <div className="flex flex-col w-[233px]">
                                 <div className="font-[M PLUS 1p] font-medium text-[24px] mb-[-4px] max-w-[167px] text-ellipsis block whitespace-nowrap overflow-hidden">
                                     {item.title}
                                 </div>

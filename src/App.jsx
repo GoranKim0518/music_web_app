@@ -3,6 +3,7 @@ import AlbumCover from "./components/albumCover.jsx";
 import Clock from "./components/Clock.jsx";
 import Header from "./components/Header.jsx";
 import PlayList from "./components/PlayList.jsx";
+import MusicPlayingBar from "./components/MusicPlayingBar.jsx";
 import { State } from "./store/app-state-context.jsx";
 import data from "./data.js";
 import data2 from "./data2.js";
@@ -151,4 +152,4 @@ export default function App() {
   );
 }
 
-//1. isPlaying && 페이지 넘어갈 때 index 유지 2. 시계 추가 3. overflow ? 흘러가도록
+//1. 플레잉 바 만들기 2. 시계 고치기 3. 흘러가는 텍스트 나머지 적용 4. css 반응형 5. 에셋 새로 만들기
