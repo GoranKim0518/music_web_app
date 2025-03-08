@@ -4,27 +4,22 @@
 #squircle {
     width: 325px;
     height: 325px;
-    background: #d9d9d9;
     --squircle-smooth: 1;
     --squircle-radius: 10px;
+    background: rgba( 180, 180, 180, 0.5 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
     mask-image: paint(squircle);
-  }
-
-#squircle2 {
-  width: 325px;
-  height: 292px;
-  background: #d9d9d9;
-  --squircle-smooth: 1;
-  --squircle-radius: 10px;
-  mask-image: paint(squircle);
   }
 
 #squircle3 {
   width: 484px;
   height: 688px;
-  background: #d9d9d9;
   --squircle-smooth: 1;
   --squircle-radius: 10px;
+  background: rgba( 180, 180, 180, 0.5 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
   mask-image: paint(squircle);
   }
 
@@ -37,34 +32,9 @@
   mask-image: paint(squircle);
   }
 
-/*make text flows when it overflow its width*/  
-
-.flow-text {
-    display: flex;
-    flex: 0 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
-    transition: 0.3s;
+.background {
+  background: rgba(255, 255, 255, 0.5);
 }
-
-.flow-wrap {
-  animation: textLoop 10s linear infinite;
-  
-}
-
-@keyframes textLoop {
-  0% {
-    transform: translateX(0%);
-    animation-direction: normal;
-  }
-  15% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 /*equalizer bar*/
 
 .equalizer-container {
